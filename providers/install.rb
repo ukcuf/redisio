@@ -23,6 +23,11 @@ action :run do
     package_resource = package 'redisio_package_name' do
       package_name node['redisio']['package_name']
       version node['redisio']['version']
+      unless node['redisio']['default_release'].empty?
+        if platform?('debian', 'ubuntu')
+          default_release node['redisio']['default_release']
+        end
+      end
       action :nothing
     end
 

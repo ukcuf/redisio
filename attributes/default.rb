@@ -52,6 +52,9 @@ default['redisio']['package_install'] = default_package_install
 default['redisio']['package_name'] =  package_name
 default['redisio']['bypass_setup'] = false
 
+# Default APT Repository Release for Debian/Ubuntu
+default['redisio']['default_release'] = ''
+
 # Tarball and download related defaults
 default['redisio']['mirror'] = 'http://download.redis.io/releases/'
 default['redisio']['base_name'] = 'redis-'

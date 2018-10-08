@@ -20,6 +20,11 @@ if node['redisio']['package_install']
   package 'redisio_package_name' do
     package_name node['redisio']['package_name']
     version node['redisio']['version'] if node['redisio']['version']
+    unless node['redisio']['default_release'].empty?
+      if platform?('debian', 'ubuntu')
+        default_release node['redisio']['default_release']
+      end
+    end
     action :install
   end
 else
